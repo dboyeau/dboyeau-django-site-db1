@@ -1,0 +1,23 @@
+
+<table class="table">
+              
+    <tbody>
+      <tr>
+        
+        <td><a href="{% url 'n_adproduit' %}"> <h5>Ajouter un produit </h5> </a></td>
+        <td><a href="{% url 'n_adtypeproduit' %}"> <h5>Ajouter un type </h5></a></td>
+        <td><a href="{% url 'n_adtagproduit' %}"> <h5>Ajouter un tag </h5></a></td>
+
+        <td><a href="{% url 'n_listtype'  %}"> <h5>Supprimer un type </h5></a></td>
+        
+        <td><a href="{% url 'n_listtag'  %}"> <h5>Supprimer un tag </h5></a></td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+
+
+
+
+

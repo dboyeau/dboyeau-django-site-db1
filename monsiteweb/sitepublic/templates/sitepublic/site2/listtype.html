@@ -1,0 +1,126 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+{% load my_tags %}
+
+{% block title %} List_produit {% endblock %}
+
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+
+</section>
+        
+
+                    <!-- dddddddd-->
+                    <div class="container">
+                        <form class="form-inline" action="" method="get">
+                          <fieldset>    
+                            <div class="input-group">
+                              
+                              <input id="type_produit" value="{{ type_produit_filter }}" name="type_produit" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Recherche</button>
+                              </div>
+                            </div>
+                          </fieldset> 
+                        </form>
+                    </div>
+                
+                    <!-- dddddd-->
+                    <br/><br/><br/>
+
+
+
+                    {% if object_list %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom du Type</th>
+                            <th scope="col">Created_by</th>
+                            <th scope="col">Delete Type</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {# {% with toto=1 %} #}
+                        {% for type in object_list  %}
+                        
+                        <tr>
+                            
+                            <th scope="row">{{ forloop.counter }}</th>
+                            {#<th scope="row">{{ toto|add:2 }}</th>#}
+                            
+                            
+                            
+                            <td>{{ type.name }}</td>
+                            <td>{{ type.created_by }}</td>
+
+                            <td><a href= "{% url 'n_deltype' type.id  %}">delete </a></td>
+                            
+                            
+                            
+                                     
+                                                                                                                        
+                            
+                        {% endfor %}
+                        {# {% endwith %} #}
+                        
+                                                
+                        </tr>
+                        
+                        
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a href="?{% param_replace page=1%}">&laquo; first</a>
+                                <a href="?{% param_replace page=page_obj.previous_page_number %}">previous</a>
+                            {% endif %}
+                            
+                            {% if page_obj.paginator.num_pages > 1 %}
+                            <span class="current">
+                                
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                            </span>
+                            {% endif %}
+                    
+                            {% if page_obj.has_next %}
+                                <a href="?{% param_replace page=page_obj.next_page_number %}">next</a>
+                                <a href="?{% param_replace page=page_obj.paginator.num_pages %}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    {% else %}
+                        <!-- Warning Alert -->
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            <strong>Warning!</strong> Pas de produits à afficher.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+
+                        <!-- Info Alert -->
+                       
+                    {% endif%} 
+
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+{% endblock %}
+

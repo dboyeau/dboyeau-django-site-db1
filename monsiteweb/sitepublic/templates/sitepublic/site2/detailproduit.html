@@ -1,0 +1,115 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+
+{% block title %} Create_produit {% endblock %}
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+        <br><br>
+
+        <!-- Produit Section-->
+        <section class="page-section portfolio" id="produit">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ object.name }}</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                    
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
+                            Created: {{ object.created_at }}
+                          </div>
+                          <div class="col-sm">
+                            Updated: {{ object.updated_at }}
+                          </div>
+                          <div class="col-sm">
+                            slug: {{ object.slug }}
+                          </div>
+                          <div class="col-sm">
+                            Created_by: {{ object.created_by }}
+                          </div>
+                        </div>
+                      </div>
+                    
+
+                    
+                    <div><br></div>  
+                    {% if object.photo %}
+                    <p><img src="{{ MEDIA_URL }}/{{ object.photo }}" alt="{{ object.name }}" class="img-fluid"></p>
+                    {% endif %}
+                    {% if object.fichier %} 
+                    <p><a href="{{ MEDIA_URL }}/{{ object.fichier }}">{{ object.fichier }}</a></p> 
+                    {% endif %}
+                                          
+                    <p>type_produit: {{ object.type_produit }}</p>
+                    
+                    <p>description: {{ object.description }}</p>
+                    {% if object.url %}
+                    <p><a href="{{ object.url }}">{{ object.url }}</a></p>
+                    {% endif %}
+
+                    {% if object.date_fin %}
+                    <p>date_fin: {{ object.date_fin }}</p>
+                    {% endif %}
+                    
+                    <p>active: {{ object.active }}</p>
+
+                    
+                    {% if tags_produit%}
+                    <h1> Tags</h1>
+                    <table class="table">
+                        
+                <tbody>
+                    <tr>
+                            
+                            
+                          
+                    {% for tag_produit in tags_produit %}
+
+                    <td>{{tag_produit}}</td>
+                    </tr>
+    …               
+                    {% endfor %}
+                </tbody>
+            </table>
+
+                    {% else %}
+                    <h1>Pas de tags sur ce produit</h1>
+                    {% endif %}
+
+                    <br>
+                    <a href="{% url 'n_listproduit' %}"><button type="button" class="btn btn-primary">Liste des produits</button></a>
+                   
+
+                    
+
+
+                    
+
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+{% endblock %}
+

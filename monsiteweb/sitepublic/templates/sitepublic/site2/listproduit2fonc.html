@@ -1,0 +1,171 @@
+
+
+
+{% extends "base3.html" %}
+
+{% load static %}
+{% load my_tags %}
+
+{% block title %} List_produit {% endblock %}
+
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+        <br>
+                                                                    <!-- Produit Section-->
+        <section class="page-section portfolio" id="produit">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Liste des produits</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    
+                    <a href="{% url 'n_listproduit' %}">listroduit-view</a>
+                    <!-- dddddddd-->
+                    <div class="container">
+                        <form class="form-inline" action="" method="get">
+                            {# {% csrf_token %} #}
+                          <fieldset>    
+                            <div class="input-group">
+                              
+                              <input id="type_produit_filter" value="{{ type_produit_filter }}"  name="type_produit_filter" type="text" class="form-control"  >
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Recherche</button>
+                              </div>
+                            </div>
+                          </fieldset> 
+                        </form>
+                      </div>
+                    <!-- dddddd-->
+
+
+
+                    <!--<a href='{{'login'}}'>liencccccccccccccxxx</a>  -->
+
+
+                      
+
+                    {% if object_list %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom du Produit</th>
+                            <th scope="col">Slug</th>
+                            <th scope="col">Type du Produit</th>
+                            <th scope="col">Update Produit</th>
+                            <th scope="col">Delete Produit</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        
+                        {% for produit in object_list  %}
+                        
+                        <tr>
+                            
+                            <th scope="row">{{ forloop.counter0|add:object_list.start_index }}</th>
+                            <td>{{ produit.name }}</td>
+                            <td>{{ produit.slug }}</td>
+                            <td>{{ produit.type_produit }}</td>
+                            <td><a href= "{% url 'n_updproduit' produit.pk  %}">update </a></td>
+                            <td><a href= "{% url 'n_delproduit' produit.pk  %}">delete </a></td>
+                            
+                            <!-- <td>{{ produit.id }}</td>   -->
+                            
+                            
+                            
+                                                                                                                        
+                            
+                        {% endfor %}
+                        
+                                                
+                        </tr>
+                        
+                        
+                        </tbody>
+                    </table>
+                    <!--
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if object_list.has_previous %}
+                                <a href="?page=1">&laquo; first</a>
+                                <a href="?page= {{object_list.previous_page_number}}">previous</a>
+                            {% endif %}
+                            
+                            {% if object_list.paginator.num_pages > 1 %}
+                            <span class="current">
+                                
+                                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                            </span>
+                            {% endif %}
+                    
+                            {% if object_list.has_next %}
+                                <a href="?page={{object_list.next_page_number}}">next</a>
+                                <a href="?page={{object_list.paginator.num_pages}}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                    -->
+
+                    {#{% if is_paginated %} #}
+                    {% if object_list.has_previous %}
+                            <a href="?{% param_replace page=1 %}">First</a>
+                            {% if object_list.previous_page_number != 1 %}
+                            <a href="?{% param_replace page=object_list.previous_page_number %}">Previous</a>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if object_list.paginator.num_pages > 1 %}
+                            <span class="current">
+                                
+                                Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                            </span>
+                        {% endif %}
+
+                        {% if object_list.has_next %}
+                            {% if object_list.next_page_number != paginator.num_pages %}
+                            <a href="?{% param_replace page=object_list.next_page_number %}">Next</a>
+                            {% endif %}
+                            <a href="?{% param_replace page=object_list.paginator.num_pages %}">Last</a>
+                        {% endif %}
+
+                        <!--<p>Objects {{ page_object.start_index }}—{{ page_object.end_index }}</p>-->
+                        {# {% endif %} #}
+
+                    {% else %}
+                        <!-- Warning Alert -->
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            <strong>Warning!</strong> Pas de produits à afficher.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+
+                        <!-- Info Alert -->
+                       
+                    {% endif%} 
+
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+{% endblock %}
+
+

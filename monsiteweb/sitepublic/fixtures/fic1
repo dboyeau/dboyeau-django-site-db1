@@ -1,0 +1,26 @@
+python manage.py dumpdata sitepublic.Produit --indent 4 > fixtures/Produit.json
+Produit.json
+
+
+p = Produit(name = "produitxxxx", type_produit = t)
+
+t.save()
+
+t = TypeProduit(name = "type1111")
+p = Produit(name = "produitxxxx", type_produit = 1)
+
+p = Produit(name = "produitxxxx")
+p = Produit(name = "produitxxxx", type_produit = t
+
+
+from sitepublic.models import Produit
+from sitepublic.models import TypeProduit
+
+    t = TypeProduit(name = "type127")
+    p = Produit(name = "produit127", type_produit = t)
+    t.save()
+    p.save() 
+
+
+)exec(open('dbadd.py').read()
+

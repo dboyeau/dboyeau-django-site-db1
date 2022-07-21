@@ -1,0 +1,57 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+
+{% block title %} Tags_produit {% endblock %}
+
+{% block masthead %} {% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+
+
+        <!-- Produit Section-->
+        <section class="page-section portfolio" id="produit">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Liste des tags de ce produit</h2>
+                <!-- Icon Divider-->
+                
+                
+        </section>
+
+        
+
+        <div class="row">
+            <div class="col-sm-4" "></div>
+            <div class="col-sm-4" ">
+
+                <div class="container">
+                    {% if tags_produit %}
+                    <h2>Liste des Tags pour  	&rarr;{{ object.name }}</h2>
+                    <ul class="list-group">
+                    {% for tag_produit in tags_produit %}
+                        <li class="list-group-item"><h3>{{tag_produit}}</h3></li>
+                        
+                    {% endfor %}
+                    </ul>
+                    {% else%}
+                    <ul class="list-group">
+                    <li class="list-group-item"><h2>Pas de tags pour {{ object.name }}</h2></li>
+                    {% endif%}
+                </div>
+
+            </div>
+            <div class="col-sm-4" "></div>
+          </div>
+        
+
+{% endblock %}
+

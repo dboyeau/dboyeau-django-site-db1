@@ -1,0 +1,106 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+
+{% block title %} Update_collection {% endblock %}
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+
+<br><br>
+        <!-- Produit Section-->
+        <section class="page-section portfolio" id="produit">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">{{ object.title }}</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Item 1-->
+                  
+                    
+                
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <!--One of three columns-->
+                          </div>
+                          <div class="col-sm-4">
+                            {% if form %}
+                    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Update">
+                    </form>
+                    {% endif %}
+                   
+
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    
+
+                    
+                    
+                </div>
+            </div>
+            
+                          </div>
+                          <div class="col-sm4">
+                            <!--One of three columns-->
+                          </div>
+                        </div>
+                      </div>
+
+            
+                      <br><br>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <a href="{% url 'n_adtagproduit' %}"> <h5><button class="btn btn-primary">Ajouter un tag</button> </h5></a>
+                            <a href="{% url 'n_listtag'  %}"> <h5><button class="btn btn-danger">Supprimer un tag</button> </h5></a>
+                          </div>
+                          <div class="col-sm-4">
+                              <!--One of three columns-->
+                            
+                          </div>
+                          <div class="col-sm-4">
+                            <!--One of three columns-->
+                          </div>
+                        </div>
+                      </div>
+
+            
+            
+
+
+
+
+
+
+
+                    
+                    
+        </section>
+        
+
+{% endblock %}
+

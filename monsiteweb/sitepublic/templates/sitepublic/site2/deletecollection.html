@@ -1,0 +1,76 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+{% load my_tags %}
+
+{% block title %} Delete_collection {% endblock %}
+
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+
+        <br/><br/>
+        <!-- Produit Section-->
+        <section class="page-section portfolio" id="produit">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Deletion des collections</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    
+
+                    
+                    {% if form %}
+                    <form method="post">{% csrf_token %}
+                      <p>Are you sure you want to delete "{{ object }}"?</p>
+                      {{ form }}
+                      <input type="submit" value="Confirm">
+                    </form>
+                    {%endif%}
+
+
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    {% if p2 %}
+
+                        {% for  objs in p2%}
+
+                          <h1>{{objs.name}}</h1>   
+
+                        {% endfor %}
+
+                    {% endif %}
+
+
+                    
+
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+
+{% endblock %}
+

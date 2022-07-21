@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+{% with tata="les intelligents" %}    
+
+<span>rrrrrrrrrrrrrrrrrrrrr</span>
+
+
+{% load static  %}
+
+<h1>{{ tata }}</h1>
+<a href="{% static 'my_app/example.jpg' %}" >zzzzzzzzzzzzzzzzzzzzzzzzzzzzz</a>
+
+<a href="{% static ""  %}" >rty</a>
+
+ {% static "eeeeeeeeee"  %}    
+
+{% endwith %}
+
+<h2> tata    </h2>
+
+
+{% with name="World" %}     
+<html>
+<div>Hello {{name}}!</div>
+</html>
+{% endwith %}

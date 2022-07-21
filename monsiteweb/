@@ -1,0 +1,4 @@
+Help on function get_slug_field in module django.views.generic.detail:
+
+ggeett__sslluugg__ffiieelldd(self)
+    Get the name of a slug field to be used to look up by slug.

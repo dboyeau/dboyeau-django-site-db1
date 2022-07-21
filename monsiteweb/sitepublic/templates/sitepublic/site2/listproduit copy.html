@@ -1,0 +1,196 @@
+
+{% extends "base3.html" %}
+
+{% load static %}
+{% load my_tags %}
+
+{% block title %} List_produit {% endblock %}
+
+
+{% block masthead %}{% endblock %}
+
+{% block portfolio %}{% endblock %}
+
+{% block about  %}{% endblock %}
+
+{% block contact %}{% endblock %}
+
+{% block numero1 %}
+
+<br/><br/>
+<!-- Produit Section-->
+<section class="page-section portfolio" id="produit">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Liste des produits</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            
+
+
+
+        
+
+                    <!-- dddddddd-->
+                    <!--
+                    <a href="{#% url 'n_deltag' tagproduit.pk %#}"> Supprimer un tag </a>
+                    <a href="{#% url 'n_deltype' typeproduit.pk #%}"> Supprimer un type </a>
+                    <a href="{#% url 'n_deltype' typeproduit.pk #%}"> Supprimer un type </a>
+                    -->
+                    <a href="{% url 'n_adproduit' %}"> Ajouter un produit </a>
+                  
+                    <h1>  hhhhhhhhhhhhhhhhhhhh</h1>
+                    <h1>  hhhhhhhhhhhhhhhhhhhh</h1>
+                    
+                    <a href="{% url 'n_adtypeproduit' %}"> Ajouter un type </a>
+                    <a href="{% url 'n_listtype'  %}"> Supprimer un type </a>
+                    
+                    <a href="{% url 'n_adtagproduit' %}"> Ajouter un tag </a>
+                    <a href="{% url 'n_listtag'  %}"> Supprimer un tag </a>
+                    
+                    
+                    
+                    
+
+                    <h3>Filtre sur type </h3>
+                    <div class="container">
+                        <form class="form-inline" action="" method="get">
+                          <fieldset>    
+                            <div class="input-group">
+                              
+                              <input id="type_produit" value="{{ type_produit_filter }}" name="type_produit" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Recherche</button>
+                              </div>
+                            </div>
+                          </fieldset> 
+                        </form>
+                    </div>
+                    <h3>Filtre sur tag </h3>
+                    <div class="container">
+                        <form class="form-inline" action="" method="get">
+                          <fieldset>    
+                            <div class="input-group">
+                              
+                              <input id="tag_produit" value="{{ tag_produit_filter }}" name="tag_produit" type="text" class="form-control" aria-label="Saisie de mots clés" required="required">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Recherche</button>
+                              </div>
+                            </div>
+                          </fieldset> 
+                        </form>
+                    </div>
+                
+                    <!-- dddddd-->
+
+
+
+
+                    {% if object_list %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom du Produit</th>
+                            <th scope="col">Slug</th>
+                            <th scope="col">Type du Produit</th>
+                            <th scope="col">Photo du Produit</th>
+                            <th scope="col">Fichier</th>
+                            <th scope="col">tags_produit</th>
+                            <th scope="col">Update Produit</th>
+                            <th scope="col">Delete Produit</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {# {% with toto=1 %} #}
+                        {% for produit in object_list  %}
+                        
+                        <tr>
+                            
+                            <th scope="row">{{ forloop.counter0|add:page_obj.start_index }}</th>
+                            {#<th scope="row">{{ toto|add:2 }}</th>#}
+                            
+                            
+                            
+                            <td>{{ produit.name }}</td>
+                            <td>{{ produit.slug }}</td>
+                            <td>{{ produit.type_produit }}</td>
+                            {% if produit.photo %}
+                            <td><a href="{{ MEDIA_URL }}/{{ produit.photo }}">photo</a></td>
+                            {% else %}
+                            <td><span>-------</span></td> 
+                            {% endif %}
+                            {% if produit.fichier %}
+                            <td><a href="{{ MEDIA_URL }}/{{ produit.fichier }}">fichier</a></td>
+                            {% else %}
+                            <td><span>-------</span></td> 
+                            {% endif %}
+                            <td><a href= "{% url 'n_detailproduittags' produit.id  %}">Tags</a></td>
+                            <td><a href= "{% url 'n_updproduit' produit.id  %}">update </a></td>
+                            <td><a href= "{% url 'n_delproduit' produit.id  %}">delete </a></td>
+                            <td><a href= "{% url 'n_detailproduit' produit.id  %}">detail </a></td>
+                            
+                            
+                            
+                                     
+                                                                                                                        
+                            
+                        {% endfor %}
+                        {# {% endwith %} #}
+                        
+                                                
+                        </tr>
+                        
+                        
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a href="?{% param_replace page=1%}">&laquo; first</a>
+                                <a href="?{% param_replace page=page_obj.previous_page_number %}">previous</a>
+                            {% endif %}
+                            
+                            {% if page_obj.paginator.num_pages > 1 %}
+                            <span class="current">
+                                
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                            </span>
+                            {% endif %}
+                    
+                            {% if page_obj.has_next %}
+                                <a href="?{% param_replace page=page_obj.next_page_number %}">next</a>
+                                <a href="?{% param_replace page=page_obj.paginator.num_pages %}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    {% else %}
+                        <!-- Warning Alert -->
+                        <div class="alert alert-warning alert-dismissible fade show">
+                            <strong>Warning!</strong> Pas de produits à afficher.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+
+                        <!-- Info Alert -->
+                       
+                    {% endif%} 
+
+                    
+                    
+                </div>
+            </div>
+        
+        
+
+{% endblock %}
+

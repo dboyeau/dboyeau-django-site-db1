@@ -1,0 +1,31 @@
+[
+{
+    "model": "sitepublic.produit",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-01-30T10:19:55.859Z",
+        "updated_at": "2022-01-30T10:19:55.859Z",
+        "name": "prduit1",
+        "slug": "produit1",
+        "photo": "imgproduit/capture.png",
+        "type_produit": 1,
+        "tags_produit": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "sitepublic.produit",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-01-30T19:57:17.359Z",
+        "updated_at": "2022-01-30T19:57:17.359Z",
+        "name": "produitxxxx",
+        "slug": "",
+        "photo": "",
+        "type_produit": 2,
+        "tags_produit": []
+    }
+}
+]

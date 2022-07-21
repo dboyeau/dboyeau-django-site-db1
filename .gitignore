@@ -1,0 +1,33 @@
+# created by virtualenv automatically
+# Ignore all files in the 'lib' subfolder.
+/lib/
+
+# Ignore all files in the 'bin' subfolder.
+/bin/
+
+# Ignore all files in the 'desttt' subfolder.
+/desttt/
+
+
+# Ignore all files in the 'venv' subfolder.
+/venv/
+
+# Ignore all files in the 'monsiteweb/media' subfolder.
+/monsiteweb/media/
+
+# Ignore all files in the '/monsiteweb/sitepublic/__pycache__/' subfolder.
+/monsiteweb/sitepublic/__pycache__/
+
+# Ignore all files in the 'monsiteweb/sitepublic/migrations/' subfolder.
+monsiteweb/sitepublic/migrations/
+
+# Ignore (generated) sqlite3 sav sav2 files,
+*.sqlite3
+*.sav
+*.sav2
+
+# Ignore (generated) swp files,
+*.swp
+
+# Ignore (generated) tar files,
+*.tar

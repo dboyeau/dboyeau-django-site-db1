@@ -1,0 +1,279 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block title %} Freelancer - Start Bootstrap Theme {% endblock %}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href=" {% static "/assets2/assets/favicon.ico" %} " />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href=" {% static   "/assets2/css/styles.css" %}  " rel="stylesheet" />
+    </head>
+    <body id="page-top">
+
+        
+
+
+
+
+
+
+
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+          
+          <div class="container" style="border: 1px solid black;">
+            <table class="table table-bordered">
+            <thead>
+                <tr class="row">
+                    <th class="col-sm-3">3 columns wide</th>
+                    <th class="col-sm-5">5 columns wide</th>
+                    <th class="col-sm-4">4 columns wide</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123</td>
+                    <td>456</td>
+                    <td>789</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+
+        
+
+                    <!--
+
+                    <form method="post">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Envoi">
+                    </form>
+                    -->
+                    <!--
+                    <form method="post">{% csrf_token %}
+                        {{ form.nom_champ1.label_tag }}
+                        {{ form.nom_champ1 }}
+                        {{ form.nom_champ2.label_tag }}                        
+                        {{ form.nom_champ2 }}
+                        {{ form.nom_champ3.label_tag }}
+                        {{ form.nom_champ3 }}
+                        <input type="submit" value="Envoi">
+                    </form>
+                    
+                    -->
+                    <!--    
+                    {% for field in form%}
+                    <div class="fieldWrapper">
+                        {{ field.nom_champ1.errors }}
+                        {{ field.nom_champ1.label_tag }}
+                        {{ field.nom_champ1 }}
+                    </div>
+                    {% endfor%}
+                    -->
+
+
+                    <!--
+                    <form method="post" novalidate>{% csrf_token %}
+                        -->
+                        <!--
+                        {% for field in form%}
+                            {{ field }}
+                            {{  field.help_text }}
+                            {{ error_messages }}
+                        {% endfor %}
+                        -->
+                        <!--
+                        {{ form }}
+                        <input type="submit" value="Envoi">
+                    </form> 
+                    -->
+
+                    <!--
+                    {{ form.non_field_errors }}
+
+                    <form method="post" novalidate>{% csrf_token %}
+                    <div class="fieldWrapper">
+                        {{ form.nom_champ1.errors }}
+                        {{ form.nom_champ1.label_tag }}
+                        {{ form.nom_champ1 }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.nom_champ2.errors }}
+                        {{ form.nom_champ2.label_tag }}
+                        {{ form.nom_champ2 }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.nom_champ3.errors }}
+                        {{ form.nom_champ3.label_tag }}
+                        {{ form.nom_champ3 }}
+                    </div>
+                    <input type="submit" value="Envoi">
+                    </form>
+
+                    -->
+
+
+                    <form method="post" novalidate>{% csrf_token %}
+                    {% for field in form %}
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        {{ field.label_tag }} {{ field }}
+                        {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="Envoi">
+                    </form>
+
+                    
+                    <i class="fas fa-camera"></i>
+                    <i class='fas fa-binoculars'></i>
+                    <i class='fas fa-flag'></i>
+                    <i class='fas fa-tag'></i>
+                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-tag"></i>
+
+                    
+                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-search></i>
+
+                    <i class="fa-duotone fa-atom-simple"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fa-regular fa-camera"></i>
+
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-camera"></i></div>
+                    
+                
+                    
+                    
+                    <select class="custom-select" multiple>
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Threedddddddddddddddddddddddddd</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Threedddddddddddddddddddddddddd</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Threedddddddddddddddddddddddddd</option>
+                  </select>                       
+                    
+                   
+
+                    
+                
+                  <div class="row">
+                    <div class="col-md-12">
+                  
+                      <select style="background:lightblue;width: 50%; height: 400px" class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
+                        <option value="" disabled selected>Choose your country</option>
+                        <option value="1">USA</option>
+                        <option value="2">Germany</option>
+                        <option value="3">France</option>
+                        <option value="4">Poland</option>
+                        <option value="5">Japan</option>
+                      </select>
+                      <label class="mdb-main-label">Label example</label>
+                      <button class="btn-save btn btn-primary btn-sm">Save</button>
+                  
+                    </div>
+                  </div>
+                  
+                  
+
+                  
+
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Navbar</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                          </li>
+                        </ul>
+                        <form class="d-flex">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>           
+
+
+    
+</body>
+
